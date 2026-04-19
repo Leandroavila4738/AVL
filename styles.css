@@ -1,0 +1,55 @@
+/* ========== BASE ========== */
+html { scroll-behavior: smooth; }
+body { overflow-x: hidden; }
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeScaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-in { animation: fadeScaleIn 0.3s ease forwards; }
+.animate-in-up { animation: fadeInUp 0.5s ease forwards; }
+
+/* ========== GALLERY ========== */
+.gallery-card-img { transition: opacity 0.3s ease; }
+.gallery-card.filtered-out { display: none; }
+
+/* ========== LIGHTBOX ========== */
+#lightbox { transition: opacity 0.3s ease; }
+#lightbox.active { opacity: 1; pointer-events: auto; }
+#lightbox-img { transition: transform 0.3s ease, opacity 0.3s ease; }
+
+.lightbox-hitbox {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Pseudo-elemento para expandir el área de clic un 20% (10% por lado) */
+.lightbox-hitbox::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  right: -10%;
+  bottom: -10%;
+  z-index: 5;
+}
+
+/* Asegurar que los botones del carrusel estén por encima del hitbox */
+.lightbox-hitbox button {
+  position: relative;
+  z-index: 20;
+}
+
+/* ========== MOBILE MENU ========== */
+#mobile-menu { transition: max-height 0.3s ease, opacity 0.3s ease; }
+
+/* ========== NAV SCROLL ========== */
+.nav-scrolled { background-color: rgb(2 6 23); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); padding-top: 0; padding-bottom: 0; }
+
+/* ========== LINE CLAMP ========== */
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
